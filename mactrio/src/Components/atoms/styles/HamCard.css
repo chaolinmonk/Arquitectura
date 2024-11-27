@@ -1,0 +1,43 @@
+.HamCard{
+  display: grid;
+  grid-template-columns: 150px auto;
+  height: 150px;
+  width: 100%;
+  border: solid 0.5px rgba(171, 252, 255, 0.16);
+  -webkit-box-shadow: inset 0 0 60px 1px var(--bg-deep-blue);
+  box-shadow: inset 0 0 60px 1px var(--bg-deep-blue);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: rgba(10,10,10,.1);
+  position: relative;
+  box-sizing: border-box;
+}
+.HamCardImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+.HamCardImg > img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.HamCardDesc{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px auto;  
+}
+.HamCardDesc > *{
+  color: aliceblue;
+  padding-left: 20px;
+  padding-right: 40px;
+  text-overflow: ellipsis;
+}
+.HamCardDesc>*:first-child{
+  font-size: 1.2rem;
+  margin: 0;
+} 

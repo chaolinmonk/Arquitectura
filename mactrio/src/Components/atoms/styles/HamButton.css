@@ -1,0 +1,42 @@
+.HamButton{
+  display: grid;
+  grid-template-columns: 50px auto;
+  height: 50px;
+  width: 100%;
+  border: solid 0.5px rgba(171, 252, 255, 0.16);
+  -webkit-box-shadow: inset 0 0 20px 1px var(--bg-deep-blue);
+  box-shadow: inset 0 0 20px 1px var(--bg-deep-blue);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgba(10,10,10,.1);
+}
+.HamButton:hover{
+  background-color: rgb(36, 54, 107);
+  -webkit-box-shadow: inset 0 0 60px 1px var(--bg-deep-blue);
+  box-shadow: inset 0 0 60px 1px var(--bg-deep-blue);
+}
+.HamButtonIcon{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+
+}
+.HamButtonIcon > img{
+  height: auto;
+  width: 60%;
+  margin:auto;
+}
+.HamButtonDesc{
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: aliceblue;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
