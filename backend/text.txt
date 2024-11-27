@@ -1,0 +1,71 @@
+Create database On_tour;
+use On_tour;
+
+-- Tabla Curso
+CREATE TABLE Curso (
+    ID_Curso INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100) NOT NULL,
+    Año INTEGER NOT NULL
+);
+
+-- Tabla Estudiante
+CREATE TABLE Estudiante (
+    ID_Estudiante INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100) NOT NULL,
+    Fecha_Nacimiento DATE NOT NULL,
+    Curso_ID_Curso INTEGER NOT NULL,
+    FOREIGN KEY (Curso_ID_Curso) REFERENCES Curso(ID_Curso)
+);
+
+-- Tabla Apoderado
+CREATE TABLE Apoderado (
+    ID_Apoderado INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Telefono INTEGER NOT NULL,
+    Curso_ID_Curso INTEGER NOT NULL,
+    FOREIGN KEY (Curso_ID_Curso) REFERENCES Curso(ID_Curso)
+);
+
+-- Tabla Contrato
+CREATE TABLE Contrato (
+    ID_Contrato INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Fecha_Contrato DATE NOT NULL,
+    Monto_Total INTEGER NOT NULL,
+    Fecha_Evento DATE NOT NULL,
+    Estado CHAR(1) NOT NULL,
+    Curso_ID_Curso INTEGER NOT NULL,
+    FOREIGN KEY (Curso_ID_Curso) REFERENCES Curso(ID_Curso)
+);
+
+-- Tabla Depósito
+CREATE TABLE Deposito (
+    ID_Deposito INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Monto INTEGER NOT NULL,
+    Fecha_Deposito DATE NOT NULL,
+    Contrato_ID_Contrato INTEGER NOT NULL,
+    FOREIGN KEY (Contrato_ID_Contrato) REFERENCES Contrato(ID_Contrato)
+);
+
+-- Tabla Paquete Turístico
+CREATE TABLE Paquete_Turistico (
+    ID_Paquete INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100) NOT NULL,
+    Descripcion VARCHAR(100) NOT NULL,
+    Duracion INTEGER NOT NULL,
+    Precio INTEGER NOT NULL,
+    FechaInicio DATE NOT NULL,
+    FechaFin DATE NOT NULL,
+    Contrato_ID_Contrato INTEGER NOT NULL,
+    FOREIGN KEY (Contrato_ID_Contrato) REFERENCES Contrato(ID_Contrato)
+);
+
+-- Tabla Actividad (relacionada con Paquete Turístico)
+CREATE TABLE Actividad (
+    ID_Actividad INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Tipo CHAR(1) NOT NULL,
+    Fecha_Actividad DATE NOT NULL,
+    Monto_Ganancia INTEGER NOT NULL,
+    Paquete_Turistico_ID_Paquete INTEGER NOT NULL,
+    FOREIGN KEY (Paquete_Turistico_ID_Paquete) REFERENCES Paquete_Turistico(ID_Paquete)
+);
